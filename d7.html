@@ -28,25 +28,7 @@
    var indiaMap = L.mapbox.tileLayer('openstreetmap.1b68f018'),
         
         }),
-        
-    var baseLayers = {
-        
-        "OpenStreetMap India": indiaMap
-    };
-    var map = L.map('map', {
-            layers: indiaMap
-        }, {
-            maxBounds: bounds,
-        })
-        .addControl(L.mapbox.geocoderControl('mapbox.places', {
-            autocomplete: true
-        }))
-        .setView([22.14980, 79.08060], 4);
-    L.hash(map);
-    L.control.layers(baseLayers, overlayMaps, {
-        position: 'topleft',
-    }).addTo(map);
-    map.on('load', function () {
+        map.on('load', function () {
     map.addSource("points", {
         "type": "geojson",
         "data": {
@@ -87,6 +69,24 @@
         }
     });
 });
+    var baseLayers = {
+        
+        "OpenStreetMap India": indiaMap
+    };
+    var map = L.map('map', {
+            layers: indiaMap
+        }, {
+            maxBounds: bounds,
+        })
+        .addControl(L.mapbox.geocoderControl('mapbox.places', {
+            autocomplete: true
+        }))
+        .setView([22.14980, 79.08060], 4);
+    L.hash(map);
+    L.control.layers(baseLayers, overlayMaps, {
+        position: 'topleft',
+    }).addTo(map);
+    
 </script>
 </body>
 </html>
